@@ -3,230 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فزعة - السياسة الرسمية | FAZAA - Official Policy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>فزعة - ميثاق الخصوصية والشفافية | FAZAA - Privacy & Transparency Charter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00ff88;
-            --primary-glow: rgba(0, 255, 136, 0.4);
-            --bg: #030303;
-            --card-bg: #0a0a0a;
+            --primary-glow: rgba(0, 255, 136, 0.15);
+            --bg: #050505;
+            --card-bg: #0d0d0d;
             --border: #1a1a1a;
             --text-main: #ffffff;
-            --text-dim: #999999;
-            --accent-red: #ff4444;
+            --text-dim: #b3b3b3;
+            --accent-red: #ff3333;
+            --accent-blue: #00ccff;
         }
 
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 50% -20%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
             color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
+            margin: 0; padding: 0;
+            line-height: 1.8;
+            background-image: linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .lang-switcher {
+            position: fixed; top: 20px; left: 20px; z-index: 1000;
+            background: var(--primary); color: #000; border: none;
+            padding: 10px 20px; border-radius: 8px; font-weight: 900;
+            cursor: pointer; box-shadow: 0 4px 15px var(--primary-glow);
         }
 
         header {
-            padding: 100px 20px 60px;
-            text-align: center;
+            padding: 80px 20px 40px; text-align: center;
             border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
+            background: radial-gradient(circle at center, #111 0%, transparent 70%);
         }
 
-        .header-badge {
-            background: var(--primary-glow);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid var(--primary);
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        h1 { 
-            font-size: 3.5em; 
-            margin: 20px 0; 
-            font-weight: 800;
-            background: linear-gradient(to bottom, #fff, #666);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-
-        .policy-card {
+        .section-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 35px;
-            margin-bottom: 25px;
-            position: relative;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 30px; margin-bottom: 30px;
+            transition: 0.3s;
         }
 
-        .policy-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.05);
-        }
+        .section-card:hover { border-color: var(--primary); }
 
-        .policy-card h2 {
-            color: var(--primary);
-            font-size: 1.4em;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 10px; color: #fff; }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
-        .status-pill {
+        .pill {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7em;
-            background: #111;
-            color: var(--primary);
-            padding: 2px 10px;
-            border-radius: 6px;
-            border: 1px solid var(--primary);
+            font-size: 0.7rem; padding: 4px 12px;
+            border-radius: 50px; border: 1px solid;
         }
 
-        .urgent-pill { border-color: var(--accent-red); color: var(--accent-red); }
+        .pill-green { color: var(--primary); border-color: var(--primary); }
+        .pill-blue { color: var(--accent-blue); border-color: var(--accent-blue); }
 
-        p { color: var(--text-dim); font-size: 1.05em; }
+        p { color: var(--text-dim); font-size: 1.1rem; }
         strong { color: var(--text-main); }
 
-        .disclaimer-box {
-            background: rgba(255, 68, 68, 0.05);
-            border: 1px solid var(--accent-red);
-            border-radius: 24px;
-            padding: 30px;
-            margin-top: 50px;
+        .permission-list { list-style: none; padding: 0; }
+        .permission-list li {
+            background: rgba(255,255,255,0.03);
+            margin-bottom: 10px; padding: 15px;
+            border-radius: 10px; border-right: 4px solid var(--accent-blue);
         }
 
-        .lang-btn {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            z-index: 1000;
-            background: var(--primary);
-            color: #000;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+        .disclaimer {
+            border: 2px solid var(--accent-red);
+            background: rgba(255, 51, 51, 0.05);
+            padding: 30px; border-radius: 20px; margin-top: 50px;
         }
 
-        .en-mode { direction: ltr; font-family: 'Roboto', sans-serif; }
+        .footer { text-align: center; padding: 50px; color: #555; border-top: 1px solid var(--border); }
+
+        .en-mode { direction: ltr; font-family: sans-serif; }
         .en-mode .ar-only { display: none; }
         .ar-mode .en-only { display: none; }
 
-        .footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: #444;
-            font-size: 0.9em;
-            border-top: 1px solid var(--border);
-        }
-
-        .email { color: var(--primary); text-decoration: none; font-family: 'JetBrains Mono'; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5em; }
-            .policy-card { padding: 25px; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section-card { padding: 20px; }
         }
     </style>
 </head>
-<body id="mainBody" class="ar-mode">
+<body id="body" class="ar-mode">
 
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">English Version</button>
+<button class="lang-switcher" onclick="toggleLang()" id="btn">Switch to English</button>
 
 <header>
-    <span class="header-badge ar-only">نظام الملاحة المستقل</span>
-    <span class="header-badge en-only">Independent Navigation System</span>
-    <h1 class="ar-only">فزعة - FAZAA</h1>
-    <h1 class="en-only">FAZAA - Offline</h1>
-    <p class="ar-only">الشفافية الكاملة حول خصوصيتك في المناطق المقطوعة</p>
-    <p class="en-only">Full transparency about your privacy in remote areas</p>
+    <h1 class="ar-only">ميثاق فزعة للخصوصية</h1>
+    <h1 class="en-only">FAZAA Privacy Charter</h1>
+    <p class="ar-only">بصفتي المطور (محمد البقمي)، أضع بين يديك كامل الصدق والشفافية التقنية.</p>
+    <p class="en-only">As the developer (Mohammed Albaqmi), I offer you complete honesty and technical transparency.</p>
 </header>
 
 <div class="container">
-    
-    <div class="policy-card">
+
+    <div class="section-card">
         <h2>
-            <i class="ar-only">1. طبيعة العمل (أوفلاين)</i>
-            <i class="en-only">1. Offline Operation</i>
-            <span class="status-pill">LOCAL_ONLY</span>
+            <span class="ar-only">1. سيادة البيانات المحلية</span>
+            <span class="en-only">1. Local Data Sovereignty</span>
+            <span class="pill pill-green">ZERO_CLOUD_POLICY</span>
         </h2>
-        <p class="ar-only">تطبيق <strong>فزعة</strong> لا يمتلك أي "سيرفرات" خلفية. كافة إحداثياتك، سجلات رحلاتك، وبيانات مدير الموارد تُخزن في قاعدة بيانات مشفرة <strong>داخل جوالك فقط</strong>. نحن لا نستطيع الوصول لمكانك حتى لو أردنا ذلك.</p>
-        <p class="en-only"><strong>FAZAA</strong> does not own any backend servers. All your coordinates, trip logs, and resource manager data are stored in an encrypted database <strong>on your device only</strong>. We cannot access your location even if we wanted to.</p>
+        <p class="ar-only">تطبيق <strong>فزعة</strong> لا يمتلك أي خوادم (Servers). كافة بياناتك من إحداثيات، وسجلات رحلات، وتنبيهات نظام، تُعالج وتُخزن <strong>داخل ذاكرة هاتفك المشفرة فقط</strong>. نحن لا نجمع، ولا نبيع، ولا نستطيع أصلاً الوصول لبياناتك الشخصية أو موقعك الجغرافي.</p>
+        <p class="en-only"><strong>FAZAA</strong> does not own any servers. All your data, including coordinates, trip logs, and system alerts, are processed and stored <strong>locally in your phone's encrypted memory only</strong>. We do not collect, sell, or even have access to your personal data or location.</p>
     </div>
 
-    <div class="policy-card">
+    <div class="section-card">
         <h2>
-            <i class="ar-only">2. العمل في الخلفية</i>
-            <i class="en-only">2. Background Operation</i>
-            <span class="status-pill">FOREGROUND_SERVICE</span>
+            <span class="ar-only">2. لماذا نطلب هذه الصلاحيات؟</span>
+            <span class="en-only">2. Why these Permissions?</span>
+            <span class="pill pill-blue">MANIFEST_TRANSPARENCY</span>
         </h2>
-        <p class="ar-only">لضمان سلامتك، يستخدم التطبيق "خدمة أمامية" (Foreground Service) للبقاء نشطاً في الخلفية. هذا يسمح للرادار بتتبع موقعك وحمايتك حتى لو قمت بإغلاق الشاشة. <strong>هذه الخدمة لا تقوم بإرسال أي بيانات عبر الإنترنت</strong>، وهدفها الوحيد هو استمرارية الملاحة.</p>
-        <p class="en-only">To ensure your safety, the app uses a "Foreground Service" to stay active in the background. This allows the radar to track your location and protect you even if the screen is off. <strong>This service does not transmit any data over the internet</strong>; its sole purpose is navigation continuity.</p>
+        <ul class="permission-list">
+            <li class="ar-only"><strong>الموقع في الخلفية (Background Location):</strong> ضروري لضمان استمرار رصد موقعك وإرسال إشارة الاستغاثة في حال تعطل الشاشة أو وضع الجوال في الجيب أثناء الرحلة.</li>
+            <li class="en-only"><strong>Background Location:</strong> Essential to ensure continuous location tracking and SOS signals if the screen is off or the phone is in your pocket during a trip.</li>
+            
+            <li class="ar-only"><strong>البلوتوث (Bluetooth Connect/Scan):</strong> يُستخدم حصرياً للربط مع العتاد اليدوي (Hardware) مثل LilyGO و Heltec لاستلام الإحداثيات عبر موجات الراديو بعيداً عن الإنترنت.</li>
+            <li class="en-only"><strong>Bluetooth Connect/Scan:</strong> Used exclusively to connect with external hardware like LilyGO and Heltec to receive coordinates via radio waves without internet.</li>
+
+            <li class="ar-only"><strong>الكاميرا (Camera):</strong> تُستخدم لغرض وحيد وهو تشغيل الفلاش (Flashlight) كإشارة SOS ضوئية في حالات الطوارئ الليلية.</li>
+            <li class="en-only"><strong>Camera:</strong> Used for the sole purpose of activating the Flashlight as a visual SOS signal during night emergencies.</li>
+        </ul>
     </div>
 
-    <div class="policy-card">
+    <div class="section-card">
         <h2>
-            <i class="ar-only">3. مدير موارد النظام</i>
-            <i class="en-only">3. Resource Manager Access</i>
-            <span class="status-pill">SYSTEM_STATS</span>
+            <span class="ar-only">3. مراقبة موارد النظام</span>
+            <span class="en-only">3. System Resources Monitoring</span>
+            <span class="pill pill-green">LOCAL_PROCESSING</span>
         </h2>
-        <p class="ar-only">يقوم مدير الموارد بقراءة استهلاك المعالج (CPU) والذاكرة (RAM) وحرارة البطارية <strong>محلياً</strong>. هذه البيانات تُستخدم فقط لإظهار نبض النظام لك ومساعدتك في توفير الطاقة عبر إيقاف الحساسات (بلوتوث، رادار، بوصلة) يدوياً.</p>
-        <p class="en-only">The Resource Manager reads CPU, RAM, and battery temperature <strong>locally</strong>. This data is only used to show you the system pulse and help you save energy by manually disabling sensors (Bluetooth, Radar, Compass).</p>
+        <p class="ar-only">تطبيق فزعة يقرأ حالة البطارية، استهلاك المعالج، وحرارة الجهاز. هذه البيانات <strong>لا تخرج من جهازك</strong>، بل تُعرض لك فقط لمساعدتك في اتخاذ قرار (وضع التوفير الفائق) لضمان بقاء هاتفك قيد العمل لأطول فترة ممكنة في ظروف النجاة.</p>
+        <p class="en-only">FAZAA monitors battery status, CPU usage, and device temperature. This data <strong>never leaves your device</strong>; it is only displayed to help you decide when to use (Ultra Power Saving Mode) to keep your phone running as long as possible in survival situations.</p>
     </div>
 
-    <div class="policy-card">
+    <div class="section-card">
         <h2>
-            <i class="ar-only">4. الحسابات والهوية</i>
-            <i class="en-only">4. Accounts & Identity</i>
-            <span class="status-pill">NO_LOGIN</span>
+            <span class="ar-only">4. الخدمات الأمامية (Foreground)</span>
+            <span class="en-only">4. Foreground Services</span>
+            <span class="pill pill-blue">ALWAYS_ACTIVE</span>
         </h2>
-        <p class="ar-only">لا يتطلب "فزعة" تسجيل دخول، اسم، بريد إلكتروني، أو رقم هاتف. أنت بالنسبة لنا <strong>مستخدم مجهول الهوية</strong>، وهذا هو قمة الأمان والخصوصية التي نقدمها لمستخدمينا في الصحراء.</p>
-        <p class="en-only">FAZAA does not require login, name, email, or phone number. To us, you are an <strong>anonymous user</strong>, providing the ultimate security and privacy for our users in the desert.</p>
+        <p class="ar-only">بما أن "فزعة" تطبيق حماية، فإنه يستخدم خدمة Foreground لضمان عدم قيام نظام أندرويد بإغلاق حساسات الموقع والبلوتوث لتوفير الطاقة. هذا يضمن أن "الرادار" يعمل بدقة مترية طوال وقت رحلتك.</p>
+        <p class="en-only">As FAZAA is a safety app, it uses Foreground Services to prevent Android from killing location and Bluetooth sensors to save power. This ensures the "Radar" operates with metric accuracy throughout your journey.</p>
     </div>
 
-    <div class="disclaimer-box">
+    <div class="disclaimer">
         <h2 style="color: var(--accent-red)">
-            <i class="ar-only">⚠️ إبراء ذمة قانوني</i>
-            <i class="en-only">⚠️ Legal Disclaimer</i>
-            <span class="status-pill urgent-pill">IMPORTANT</span>
+            <span class="ar-only">⚠️ إبراء ذمة المطور</span>
+            <span class="en-only">⚠️ Developer Disclaimer</span>
         </h2>
-        <p class="ar-only" style="color: #fff;">أنا المطور <strong>محمد البقمي</strong>، أبرئ ذمتي من أي مسؤولية ناتجة عن أعطال تقنية في الجهاز، أو ظروف بيئية تؤدي لفشل حساسات الهاتف (مثل الحرارة العالية أو العواصف التي تحجب إشارة GPS). التطبيق أداة مساعدة، ويجب دائماً الاعتماد على الخبرة البشرية وأدوات الملاحة التقليدية بجانبه.</p>
-        <p class="en-only" style="color: #fff;">I, the developer <strong>Mohammed Albaqmi</strong>, disclaim any responsibility for technical failures or environmental conditions leading to phone sensor malfunctions (e.g., extreme heat or storms blocking GPS signals). The app is a supporting tool, and you must always rely on human experience and traditional navigation tools alongside it.</p>
+        <p class="ar-only" style="color: #fff;">أنا <strong>محمد البقمي</strong>، أؤكد أن هذا التطبيق أداة مساعدة تقنية بُنيت باجتهاد شخصي. لا أتحمل مسؤولية أي فقدان للموقع أو فشل في العتاد ناتج عن ظروف جوية قاهرة أو خلل في مستشعرات الهاتف. يرجى دائماً حمل أدوات ملاحة تقليدية كاحتياط ثانٍ.</p>
+        <p class="en-only" style="color: #fff;">I, <strong>Mohammed Albaqmi</strong>, affirm that this app is a technical aid built with personal diligence. I am not liable for location loss or hardware failure due to extreme weather or phone sensor malfunctions. Please always carry traditional navigation tools as a secondary backup.</p>
     </div>
 
 </div>
 
 <div class="footer">
-    <p class="ar-only">للتواصل المباشر: <a href="mailto:m15660803@gmail.com" class="email">m15660803@gmail.com</a></p>
-    <p class="en-only">Contact: <a href="mailto:m15660803@gmail.com" class="email">m15660803@gmail.com</a></p>
-    <p>&copy; 2026 FAZAA - Developed with pride in Saudi Arabia</p>
+    <p class="ar-only">تم التطوير بواسطة: محمد البقمي - المملكة العربية السعودية</p>
+    <p class="en-only">Developed by: Mohammed Albaqmi - Saudi Arabia</p>
+    <p class="pill pill-green">Encrypted & Secure &copy; 2026</p>
+    <br>
+    <a href="mailto:m15660803@gmail.com" style="color: var(--primary); text-decoration: none; font-family: 'JetBrains Mono';">m15660803@gmail.com</a>
 </div>
 
 <script>
     function toggleLang() {
-        const body = document.getElementById('mainBody');
-        const btn = document.getElementById('langBtn');
+        const body = document.getElementById('body');
+        const btn = document.getElementById('btn');
         if (body.classList.contains('ar-mode')) {
             body.classList.replace('ar-mode', 'en-mode');
-            btn.textContent = 'النسخة العربية';
+            btn.textContent = 'التحويل للعربية';
         } else {
             body.classList.replace('en-mode', 'ar-mode');
-            btn.textContent = 'English Version';
+            btn.textContent = 'Switch to English';
         }
     }
 </script>
