@@ -16,6 +16,7 @@
             --text-dim: #b3b3b3;
             --accent-red: #ff3333;
             --accent-blue: #00ccff;
+            --accent-gold: #ffcc00;
         }
 
         body {
@@ -53,6 +54,12 @@
 
         .section-card:hover { border-color: var(--primary); }
 
+        .copyright-card {
+            border: 2px solid var(--accent-gold);
+            background: rgba(255, 204, 0, 0.05);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.05);
+        }
+
         h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 10px; color: #fff; }
         h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
@@ -64,6 +71,7 @@
 
         .pill-green { color: var(--primary); border-color: var(--primary); }
         .pill-blue { color: var(--accent-blue); border-color: var(--accent-blue); }
+        .pill-gold { color: var(--accent-gold); border-color: var(--accent-gold); }
 
         p { color: var(--text-dim); font-size: 1.1rem; }
         strong { color: var(--text-main); }
@@ -105,6 +113,24 @@
 </header>
 
 <div class="container">
+
+    <div class="section-card copyright-card">
+        <h2>
+            <span class="ar-only">ملكية المصنف وحقوق الطبع</span>
+            <span class="en-only">Copyright & Intellectual Property</span>
+            <span class="pill pill-gold">SAIP_REGISTERED</span>
+        </h2>
+        <div class="ar-only">
+            <p style="color: #fff; font-weight: bold;">جميع الحقوق محفوظة © 2026 لمحمد سفر عقيل البقمي.</p>
+            <p>هذا المصنف (<strong>نظام فزعة للملاحة والمراسلة الميدانية أوفلاين</strong>) مسجل رسمياً لدى <strong>الهيئة السعودية للملكية الفكرية</strong> برقم تسجيل: <strong>26-12-76014494</strong> بتاريخ 17/10/1447 هـ.</p>
+            <p style="border-right: 3px solid var(--accent-red); padding-right: 15px;">يمنع منعاً باتاً نسخ، أو تعديل، أو إعادة توزيع الكود المصدري أو أي جزء من هذا التطبيق دون إذن خطي مسبق من صاحب الحق. أي انتهاك لهذه الحقوق يعرض صاحبه للمساءلة القانونية بموجب أنظمة حماية حقوق المؤلف في المملكة العربية السعودية.</p>
+        </div>
+        <div class="en-only">
+            <p style="color: #fff; font-weight: bold;">All Rights Reserved © 2026 by Mohammed Safar Aqeel Albaqami.</p>
+            <p>This work (<strong>Fazaa Offline Navigation & Field Messaging System</strong>) is officially registered with the <strong>Saudi Authority for Intellectual Property</strong> under Registration Number: <strong>26-12-76014494</strong> dated 05/04/2026.</p>
+            <p style="border-left: 3px solid var(--accent-red); padding-left: 15px;">Any unauthorized copying, modification, or redistribution of the source code or any part of this application is strictly prohibited without prior written consent from the owner. Violators will be subject to legal action under the copyright protection laws of KSA.</p>
+        </div>
+    </div>
 
     <div class="section-card">
         <h2>
@@ -186,9 +212,6 @@
         }
     }
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
