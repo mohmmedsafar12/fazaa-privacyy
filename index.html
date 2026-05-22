@@ -67,12 +67,10 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem; padding: 4px 12px;
             border-radius: 50px; border: 1px solid;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
+            white-space: normal; /* تم التعديل للسماح بلف النص */
+            display: inline-block;
             text-align: center;
-            min-height: 20px;
-            line-height: 1;
+            max-width: 90%; /* لضمان عدم الخروج في الجوال */
         }
 
         .pill-green { color: var(--primary); border-color: var(--primary); }
@@ -135,21 +133,152 @@
         <div class="ar-only">
             <p style="color: #fff; font-weight: bold;">جميع الحقوق محفوظة © 2026 لمحمد سفر عقيل البقمي.</p>
             <p>هذا المصنف (<strong>نظام فزعة للملاحة والمراسلة الميدانية أوفلاين</strong>) مسجل رسمياً لدى <strong>الهيئة السعودية للملكية الفكرية</strong> برقم تسجيل: <strong>26-12-76014494</strong> بتاريخ 17/10/1447 هـ.</p>
+            <p style="border-right: 3px solid var(--accent-red); padding-right: 15px;">يمنع منعاً باتاً نسخ، أو تعديل، أو إعادة توزيع الكود المصدري أو أي جزء من هذا التطبيق دون إذن خطي مسبق من صاحب الحق. أي انتهاك لهذه الحقوق يعرض صاحبه للمساءلة القانونية بموجب أنظمة حماية حقوق المؤلف في المملكة العربية السعودية.</p>
         </div>
         <div class="en-only">
             <p style="color: #fff; font-weight: bold;">All Rights Reserved © 2026 by Mohammed Safar Aqeel Albaqami.</p>
-            <p>This work (<strong>Fazaa Offline Navigation & Field Messaging System</strong>) is officially registered with the <strong>Saudi Authority for Intellectual Property</strong> under Registration Number: <strong>26-12-76014494</strong>.</p>
+            <p>This work (<strong>Fazaa Offline Navigation & Field Messaging System</strong>) is officially registered with the <strong>Saudi Authority for Intellectual Property</strong> under Registration Number: <strong>26-12-76014494</strong> dated 05/04/2026.</p>
+            <p style="border-left: 3px solid var(--accent-red); padding-left: 15px;">Any unauthorized copying, modification, or redistribution of the source code or any part of this application is strictly prohibited without prior written consent from the owner. Violators will be subject to legal action under the copyright protection laws of KSA.</p>
         </div>
     </div>
 
-    <!-- بقية الملف كما هو تماماً.. -->
-    <!-- ... -->
-    <!-- الجزء الأخير في Footer للتوضيح -->
+    <div class="section-card">
+        <h2>
+            <span class="ar-only">1. سيادة البيانات المحلية (لا توجد خوادم)</span>
+            <span class="en-only">1. Local Data Sovereignty (No Servers)</span>
+            <span class="pill pill-green">ZERO_CLOUD_POLICY</span>
+            <span class="pill pill-green">ENCRYPTED_STORAGE</span>
+        </h2>
+        <div class="ar-only">
+            <p>تطبيق <strong>فزعة</strong> مصمم ليعمل في أقصى الظروف الميدانية (Offline). لذلك، التطبيق لا يمتلك أي خوادم سحابية (Servers)، ولا يستخدم قواعد بيانات خارجية، ولا يحتوي على أدوات تتبع لطرف ثالث (مثل Firebase Analytics أو غيرها).</p>
+            <p>كافة بياناتك (الإحداثيات، سجلات الرحلات، الأجهزة المقترنة) تتم معالجتها وتُخزن <strong>داخل ذاكرة هاتفك المشفرة فقط</strong> باستخدام (Flutter Secure Storage). نحن لا نجمع، ولا نبيع، ولا نستطيع أصلاً الوصول لبياناتك الشخصية أو موقعك الجغرافي.</p>
+        </div>
+        <div class="en-only">
+            <p><strong>FAZAA</strong> is designed to operate in extreme field conditions (Offline). Therefore, the app has NO cloud servers, uses NO external databases, and contains NO third-party trackers (like Firebase Analytics or similar).</p>
+            <p>All your data (coordinates, trip logs, paired devices) are processed and stored <strong>locally in your phone's encrypted memory only</strong> using (Flutter Secure Storage). We do not collect, sell, or even have access to your personal data or geographical location.</p>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <h2>
+            <span class="ar-only">2. الإفصاح البارز عن الصلاحيات الحساسة</span>
+            <span class="en-only">2. Prominent Disclosure of Sensitive Permissions</span>
+            <span class="pill pill-blue">MANIFEST_TRANSPARENCY</span>
+        </h2>
+        <p class="ar-only">لضمان عمل رادار الإنقاذ وخرائط الأوفلاين بكفاءة عالية، نطلب الصلاحيات التالية ونوضح سببها بشفافية تامة، متوافقين مع سياسات متجر Google Play:</p>
+        <p class="en-only">To ensure the rescue radar and offline maps function highly efficiently, we request the following permissions and transparently state their purpose, fully complying with Google Play Store policies:</p>
+        
+        <ul class="permission-list">
+            <li>
+                <div class="ar-only">
+                    <strong>الموقع الجغرافي (أمامي وفي الخلفية):</strong> <br>
+                    <strong>لماذا نحتاجه؟</strong> التطبيق يجمع بيانات الموقع (Location Data) لتمكين ميزة "رادار فزعة" وتسجيل مسار رحلتك في المناطق الصحراوية. <br>
+                    <strong>الخلفية (Background):</strong> التطبيق يستمر في تتبع موقعك <strong>حتى عندما يكون التطبيق مغلقاً أو غير مستخدم (في الخلفية)</strong>. هذا ضروري جداً لضمان تسجيل مسارك وإمكانية إرسال إحداثياتك الدقيقة عبر أجهزة الراديو في حال الطوارئ وسقوط الهاتف في جيبك. يعمل هذا فقط عند تفعيلك لزر "تتبع الخلفية" بمحض إرادتك.
+                </div>
+                <div class="en-only">
+                    <strong>Location (Foreground & Background):</strong> <br>
+                    <strong>Why we need it?</strong> The app collects location data to enable the "Fazaa Radar" feature and log your trajectory in desert areas. <br>
+                    <strong>Background Location:</strong> The app continues to track your location <strong>even when the app is closed or not in use (in the background)</strong>. This is critical to ensure your path is recorded and exact coordinates can be broadcasted via radio devices in emergencies while the phone is in your pocket. This ONLY activates when you explicitly turn on the "Background Tracking" master switch.
+                </div>
+            </li>
+            
+            <li>
+                <div class="ar-only">
+                    <strong>الخدمات الأمامية الدائمة (Foreground Services):</strong> <br>
+                    يستخدم التطبيق خدمة أمامية مصحوبة بإشعار دائم في شريط الإشعارات (Status Bar) لمنع نظام التشغيل من "قتل" خدمة الـ GPS أو فصل البلوتوث لتوفير البطارية. هذا يضمن بقاءك متصلاً أثناء الرحلات البرية.
+                </div>
+                <div class="en-only">
+                    <strong>Persistent Foreground Services:</strong> <br>
+                    The app utilizes a foreground service accompanied by a persistent notification in the status bar. This prevents the OS from "killing" the GPS or disconnecting Bluetooth to save battery, ensuring you stay connected during off-road trips.
+                </div>
+            </li>
+
+            <li>
+                <div class="ar-only">
+                    <strong>البلوتوث (Bluetooth Connect/Scan):</strong> <br>
+                    يُستخدم حصرياً للبحث والربط مع العتاد الميداني المستقل (مثل LilyGO و Heltec LoRa) لنقل إحداثياتك عبر موجات الراديو بعيداً عن شبكات الإنترنت الخلوية.
+                </div>
+                <div class="en-only">
+                    <strong>Bluetooth Connect/Scan:</strong> <br>
+                    Used exclusively to scan and connect with independent field hardware (like LilyGO and Heltec LoRa) to transmit your coordinates via radio waves, entirely independent of cellular internet.
+                </div>
+            </li>
+
+            <li>
+                <div class="ar-only">
+                    <strong>الوصول للتخزين (Storage Access):</strong> <br>
+                    مطلوب لقراءة ملفات الخرائط غير المتصلة (MBTiles) التي تقوم أنت بتحميلها، ولحفظ سجلات الإحداثيات (Logs) محلياً على جهازك لتعود إليها لاحقاً.
+                </div>
+                <div class="en-only">
+                    <strong>Storage Access:</strong> <br>
+                    Required to read offline map files (MBTiles) that you download to your device, and to save your coordinate logs locally so you can revisit them later.
+                </div>
+            </li>
+
+            <li>
+                <div class="ar-only">
+                    <strong>الكاميرا (Camera):</strong> <br>
+                    تُستخدم لغرض طوارئ وحيد وهو تشغيل (الفلاش) للوميض كإشارة نداء استغاثة (SOS) ضوئية متقطعة في الظلام. لا نلتقط، ولا نحفظ، ولا نعالج أي صور أو فيديو.
+                </div>
+                <div class="en-only">
+                    <strong>Camera:</strong> <br>
+                    Used for a single emergency purpose: activating the Flashlight to strobe as a visual SOS signal in the dark. We DO NOT capture, save, or process any photos or videos.
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section-card">
+        <h2>
+            <span class="ar-only">3. الاحتفاظ بالبيانات وحذفها</span>
+            <span class="en-only">3. Data Retention & Deletion</span>
+            <span class="pill pill-gold">USER_CONTROL</span>
+        </h2>
+        <div class="ar-only">
+            <p>بما أن التطبيق لا يملك خوادم، <strong>فأنت المتحكم الوحيد والنهائي في بياناتك.</strong></p>
+            <ul>
+                <li><strong>زر التطهير (Purge):</strong> وفرنا لك داخل التطبيق زراً باللون الأحمر يقوم فوراً بمسح وإعدام كافة سجلات الإحداثيات المحفوظة في التطبيق بشكل نهائي ولا يمكن استرجاعها.</li>
+                <li><strong>إلغاء التثبيت (Uninstall):</strong> بمجرد حذفك للتطبيق من هاتفك، يتم تدمير كافة البيانات، الخرائط، وسجلات المواقع المحفوظة محلياً بلا رجعة.</li>
+            </ul>
+        </div>
+        <div class="en-only">
+            <p>Since the app has no servers, <strong>you are the sole and ultimate controller of your data.</strong></p>
+            <ul>
+                <li><strong>Purge Button:</strong> We provided a red "Purge" button within the app that instantly wipes and destroys all saved coordinate logs permanently. They cannot be recovered.</li>
+                <li><strong>Uninstalling:</strong> Simply uninstalling the app from your phone will irrevocably destroy all data, maps, and location logs saved locally.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <h2>
+            <span class="ar-only">4. مراقبة موارد النظام الميدانية</span>
+            <span class="en-only">4. Field System Resources Monitoring</span>
+            <span class="pill pill-green">LOCAL_PROCESSING</span>
+        </h2>
+        <div class="ar-only">
+            <p>تطبيق فزعة يقرأ حالة البطارية، استهلاك المعالج، وحرارة الجهاز. هذه البيانات <strong>لا يتم إرسالها لأي جهة</strong>، بل تُعرض لك فقط على الشاشة لمساعدتك في مراقبة صحة هاتفك واتخاذ قرار تفعيل (وضع التوفير الفائق) لضمان بقاء هاتفك قيد العمل لأطول فترة ممكنة في ظروف النجاة القاسية.</p>
+        </div>
+        <div class="en-only">
+            <p>FAZAA monitors battery status, CPU usage, and device temperature. This data is <strong>never transmitted anywhere</strong>; it is only displayed on your screen to help you monitor your phone's health and decide when to activate (Ultra Power Saving Mode), ensuring your phone survives as long as possible in harsh conditions.</p>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <h2 style="color: var(--accent-red)">
+            <span class="ar-only">⚠️ إبراء ذمة المطور</span>
+            <span class="en-only">⚠️ Developer Disclaimer</span>
+        </h2>
+        <p class="ar-only" style="color: #fff;">أنا <strong>محمد البقمي</strong>، أؤكد أن هذا التطبيق أداة مساعدة تقنية بُنيت باجتهاد وهندسة شخصية. لا أتحمل مسؤولية أي فقدان للموقع، أو فشل في العتاد ناتج عن ظروف جوية قاهرة، أو خلل في مستشعرات الهاتف والـ GPS. يرجى دائماً التوكل على الله أولاً، ثم حمل أدوات ملاحة تقليدية وأجهزة اتصال فضائية كاحتياط أساسي للسلامة.</p>
+        <p class="en-only" style="color: #fff;">I, <strong>Mohammed Albaqmi</strong>, affirm that this app is a technical aid built with personal engineering and diligence. I am not liable for location loss, hardware failure due to extreme weather, or phone/GPS sensor malfunctions. Always rely on God first, and carry traditional navigation tools and satellite communication devices as a primary safety backup.</p>
+    </div>
+
+</div>
 
 <div class="footer">
     <p class="ar-only">تم التطوير والهندسة بواسطة: محمد البقمي - تبوك، المملكة العربية السعودية</p>
     <p class="en-only">Developed & Engineered by: Mohammed Albaqmi - Tabuk, Saudi Arabia</p>
-    <p class="pill pill-green">Encrypted & Secure Offline System © 2026</p>
+    <p class="pill pill-green">Encrypted & Secure Offline System &copy; 2026</p>
     <br>
     <a href="mailto:tw272162@gmail.com" style="color: var(--primary); text-decoration: none; font-family: 'JetBrains Mono'; font-size: 1.2rem;">tw272162@gmail.com</a>
     <br>
